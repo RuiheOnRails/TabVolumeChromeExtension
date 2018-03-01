@@ -1,0 +1,10 @@
+{
+  "name": "Tab Vol",
+  "description" : "Change volume of your tabs",
+  "version": "0.1",
+  "browser_action": {
+    "default_popup": "main.html",
+    "default_icon": "volume-control.png"
+  },
+  "manifest_version": 2
+}

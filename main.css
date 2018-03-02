@@ -19,7 +19,11 @@ img {
     position: fixed;
     bottom: 0;
 }
-
+#mainContainer{
+    min-height: 220px;
+    max-height: 220px;
+    overflow: auto;
+}
 #volRange{
     width: 85%;
 }

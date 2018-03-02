@@ -1,10 +1,10 @@
 {
-  "name": "Tab Vol",
+  "name": "Volume Center",
   "description" : "Change volume of your tabs",
   "version": "0.1",
   "browser_action": {
     "default_popup": "main.html",
-    "default_icon": "volume-control.png"
+    "default_icon": "img/volume-control.png"
   },
   "manifest_version": 2
 }

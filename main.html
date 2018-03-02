@@ -2,14 +2,48 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <title> Tab Vol </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title> Volume Center </title>
     
   </head>
 
   <body>
-    <p>do "inspect popup" on extension to open console</p>
-    <div class="slidecontainer">
-      <input type="range" min="1" max="100" value="0" class="slider" id="volRange">
+    <div class="jumbotron text-center p-2 bg-dark text-white"> Volume Center 
+      <span class="author"> by: Isaac Chen & Jerry Li</span>
+    </div>
+    
+    <div id= "mainContainer" class = "bg-light container border rounded py-2"> 
+        <p>Tabs With Sound</p>
+        <!-- make following div scrollable if more than 5 tabs are present -->
+        <div class="tabs container px-5 py-2 border rounded bg-white">
+           <!-- using grid system for each tab and icon -->
+           <div class="row" id="tab1">
+            <div class = "col-9"> Tab Name </div>
+            <div class = "col-3">
+                <img src="img/sound.png" alt="Sound">
+            </div>
+           
+           </div>
+        </div>
+
+    </div>
+
+    <div id ="volumeControl" class="container text-center m-1">
+      <div class="row text-center pl-5">
+        <input type="range" min="1" max="100" value="0" class="slider" id="volRange">
+      </div>
+      <div class="row">
+        <div class="col-3 text-secondary">
+          0%
+        </div>
+        <div class="col-6">
+          Volume: <span id="currentVol" class="text-info"> xxx</span> <span class="text-info">%</span>
+        </div>
+        <div class="col-3 text-secondary">
+          100%
+        </div>
+      </div>
+    </div>
     </div>
   </body>
 

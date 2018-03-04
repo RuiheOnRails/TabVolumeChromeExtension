@@ -4,92 +4,33 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title> Volume Center </title>
-    
+
   </head>
 
   <body>
-    <div class="jumbotron text-center p-2 bg-dark text-white mb-2"> Volume Center 
+    <div class="jumbotron text-center p-2 bg-dark text-white mb-2"> Volume Center
       <span class="author"> by: Isaac Chen & Jerry Li</span>
     </div>
-    
+
     <div id="topControl" class="row container pb-2">
         <div class="col-9 text-info">Tabs with Sound</div>
         <div class="col-3 align-center"> <button id="muteAll" class="btn btn-sm btn-dark"> Mute All</button></div>
     </div>
-    
-    <div id= "mainContainer" class = "bg-light container"> 
+
+    <div id= "mainContainer" class = "bg-light container">
         <!-- make following div scrollable if more than 5 tabs are present -->
-        <div class="tabs container border rounded bg-white m-2 p-2">
-           <!-- using grid system for each tab and icon -->
-          <div class="row" id="tab1">
-            <div class = "col-9"> Tab Name </div>
-            <div class = "col-3">
-                <img src="img/sound.png" alt="Sound">
-            </div>
-          </div>
-        </div>
-
-        <div class="tabs container border rounded bg-white m-2 p-2">
-            <!-- using grid system for each tab and icon -->
-           <div class="row" id="tab1">
-             <div class = "col-9"> Tab Name </div>
-             <div class = "col-3">
-                 <img src="img/sound.png" alt="Sound">
-             </div>
-           </div>
-         </div>
-
-         <div class="tabs container border rounded bg-white m-2 p-2">
-            <!-- using grid system for each tab and icon -->
-           <div class="row" id="tab1">
-             <div class = "col-9"> Tab Name </div>
-             <div class = "col-3">
-                 <img src="img/sound.png" alt="Sound">
-             </div>
-           </div>
-         </div>
-
-         <div class="tabs container border rounded bg-white m-2 p-2">
-            <!-- using grid system for each tab and icon -->
-           <div class="row" id="tab1">
-             <div class = "col-9"> Tab Name </div>
-             <div class = "col-3">
-                 <img src="img/sound.png" alt="Sound">
-             </div>
-           </div>
-         </div>
-
-         <div class="tabs container border rounded bg-white m-2 p-2">
-            <!-- using grid system for each tab and icon -->
-           <div class="row" id="tab1">
-             <div class = "col-9"> Tab Name </div>
-             <div class = "col-3">
-                 <img src="img/sound.png" alt="Sound">
-             </div>
-           </div>
-         </div>
-
-         <div class="tabs container border rounded bg-white m-2 p-2">
-            <!-- using grid system for each tab and icon -->
-           <div class="row" id="tab1">
-             <div class = "col-9"> Tab Name </div>
-             <div class = "col-3">
-                 <img src="img/sound.png" alt="Sound">
-             </div>
-           </div>
-         </div>
     </div>
 
     <div id ="volumeControl" class="container text-center m-1">
       <div class="row text-center pl-5">
-        <input type="range" min="1" max="100" value="0" class="slider" id="volRange">
+        <input type="range" min="0" max="100" value="0" class="slider" id="volRange">
       </div>
       <div class="row">
         <div class="col-3 text-secondary">
           0%
         </div>
         <div class="col-6">
-          Volume: <span id="currentVol" class="text-info"> xxx</span> <span class="text-info">%</span>
+          Volume: <span id="currentVol" class="text-info"></span> <span class="text-info">%</span>
         </div>
         <div class="col-3 text-secondary">
           100%
@@ -101,4 +42,3 @@
 
   <script type="text/javascript" src="main.js"></script>
 </html>
-

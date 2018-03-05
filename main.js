@@ -42,8 +42,6 @@ let tabArray = chrome.tabs.query({},(tabs) => {
   })
 })
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     let volRange = document.getElementById("volRange");
     volRange.oninput = () => {
@@ -52,6 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
       currentVol.innerHTML = volRange.value
     }
 });
+
+let muteAll = document.getElementById("muteAll")
+muteAll.addEventListener("click", () => {
+  chrome.tabs.query({audible:true}, (innerTabs) => {
+    innerTabs.forEach((innerTab) => {
+      chrome.tabs.update(innerTab.id, {muted:true})
+    })
+  })
+})
 
 //this sets the default value of the slider
 let volRange = document.getElementById("volRange");

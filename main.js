@@ -1,5 +1,6 @@
 console.log("js loaded")
 
+
 let tabArray = chrome.tabs.query({},(tabs) => {
   console.log(tabs);
   let container = document.getElementById("mainContainer")
@@ -7,16 +8,25 @@ let tabArray = chrome.tabs.query({},(tabs) => {
     if (tab.audible === true) {
       let title = tab.title
 
-      let img = document.createElement("img")
-      img.src = "img/sound.png"
-      img.alt = "Sound"
+      let img = document.createElement("img");
+      img.src = "img/sound.png";
+      img.alt = "sound";
+      img.classList.add("soundState");
       img.addEventListener('click', () => {
         chrome.tabs.query({index:tab.index}, (innerTabs) => {
           innerTabs.forEach((innerTab) => {
+            if(innerTab.mutedInfo.muted){
+              img.alt = "sound";
+              img.src = "img/sound.png";
+            }else{
+              img.alt = "nosound";
+              img.src = "img/nosound.png";
+            }
             let changeMute = innerTab.mutedInfo.muted ? false : true
             chrome.tabs.update(innerTab.id, {muted: changeMute})
           })
         })
+
       })
 
       let div = document.createElement("div")
@@ -51,12 +61,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-let muteAll = document.getElementById("muteAll")
+let muteAll = document.getElementById("muteAll");
+
 muteAll.addEventListener("click", () => {
   chrome.tabs.query({audible:true}, (innerTabs) => {
     innerTabs.forEach((innerTab) => {
       chrome.tabs.update(innerTab.id, {muted:true})
     })
+  })
+  document.querySelectorAll(".soundState").forEach((e) => {
+    e.src = "img/nosound.png";
+  })
+})
+
+let unMuteAll = document.getElementById("unMuteAll");
+
+unMuteAll.addEventListener("click", () => {
+  chrome.tabs.query({audible:true}, (innerTabs) => {
+    innerTabs.forEach((innerTab) => {
+      chrome.tabs.update(innerTab.id, {muted:false})
+    })
+  })
+  document.querySelectorAll(".soundState").forEach((e) => {
+    e.src = "img/sound.png";
   })
 })
 

@@ -10,6 +10,14 @@ let tabArray = chrome.tabs.query({},(tabs) => {
       let img = document.createElement("img")
       img.src = "img/sound.png"
       img.alt = "Sound"
+      img.addEventListener('click', () => {
+        chrome.tabs.query({index:tab.index}, (innerTabs) => {
+          innerTabs.forEach((innerTab) => {
+            let changeMute = innerTab.mutedInfo.muted ? false : true
+            chrome.tabs.update(innerTab.id, {muted: changeMute})
+          })
+        })
+      })
 
       let div = document.createElement("div")
       div.className = "col-3"

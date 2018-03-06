@@ -34,6 +34,7 @@ let tabArray = chrome.tabs.query({},(tabs) => {
       div.appendChild(img)
 
       let nameDiv = document.createElement("div")
+      nameDiv.id = title + tab.index
       nameDiv.className = "col-9"
       nameDiv.innerHTML = title
 
@@ -47,6 +48,29 @@ let tabArray = chrome.tabs.query({},(tabs) => {
       tabDiv.appendChild(div)
       tabContainer.appendChild(tabDiv)
       container.appendChild(tabContainer)
+
+
+
+
+
+      let clickableTitle = document.getElementById(title + tab.index)
+
+      clickableTitle.addEventListener("click", () => {
+        chrome.tabs.query({highlighted:true}, (innerTabs) => {
+          innerTabs.forEach((innerTab) => {
+            chrome.tabs.update(innerTab.id, {highlighted: false})
+          })
+        })
+        chrome.tabs.query({index:tab.index}, (innerTabs) => {
+          innerTabs.forEach((innerTab) => {
+            chrome.tabs.update(innerTab.id, {highlighted: true})
+          })
+        })
+      })
+
+
+
+
     }
 
   })

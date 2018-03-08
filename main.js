@@ -34,7 +34,7 @@ let tabArray = chrome.tabs.query({},(tabs) => {
       div.appendChild(img)
 
       let nameDiv = document.createElement("div")
-      nameDiv.id = title + tab.index
+      nameDiv.id = tab.id
       nameDiv.className = "col-9"
       nameDiv.innerHTML = title
 
@@ -53,7 +53,7 @@ let tabArray = chrome.tabs.query({},(tabs) => {
 
 
 
-      let clickableTitle = document.getElementById(title + tab.index)
+      let clickableTitle = document.getElementById(tab.id)
 
       clickableTitle.addEventListener("click", () => {
         chrome.tabs.query({highlighted:true}, (innerTabs) => {
@@ -61,11 +61,20 @@ let tabArray = chrome.tabs.query({},(tabs) => {
             chrome.tabs.update(innerTab.id, {highlighted: false})
           })
         })
-        chrome.tabs.query({index:tab.index}, (innerTabs) => {
-          innerTabs.forEach((innerTab) => {
-            chrome.tabs.update(innerTab.id, {highlighted: true})
-          })
-        })
+        chrome.windows.update(tab.windowId, {focused:true})
+        chrome.tabs.update(tab.id, {highlighted: true})
+        // chrome.tabs.query({highlighted:true}, (innerTabs) => {
+        //   innerTabs.forEach((innerTab) => {
+        //     chrome.tabs.update(innerTab.id, {highlighted: false})
+        //   })
+        // })
+        // clickableTitle.addEventListener("click", () => {
+        //   chrome.tabs.query({index:tab.index}, (innerTabs) => {
+        //     innerTabs.forEach((innerTab) => {
+        //
+        //     })
+        //   })
+        // })
       })
 
 
@@ -75,15 +84,6 @@ let tabArray = chrome.tabs.query({},(tabs) => {
 
   })
 })
-
-document.addEventListener('DOMContentLoaded', () => {
-    let volRange = document.getElementById("volRange");
-    volRange.oninput = () => {
-      console.log(volRange.value);
-      let currentVol = document.getElementById("currentVol")
-      currentVol.innerHTML = volRange.value
-    }
-});
 
 let muteAll = document.getElementById("muteAll");
 
@@ -110,8 +110,3 @@ unMuteAll.addEventListener("click", () => {
     e.src = "img/sound.png";
   })
 })
-
-//this sets the default value of the slider
-let volRange = document.getElementById("volRange");
-let currentVol = document.getElementById("currentVol")
-currentVol.innerHTML = volRange.value

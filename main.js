@@ -63,18 +63,6 @@ let tabArray = chrome.tabs.query({},(tabs) => {
         })
         chrome.windows.update(tab.windowId, {focused:true})
         chrome.tabs.update(tab.id, {highlighted: true})
-        // chrome.tabs.query({highlighted:true}, (innerTabs) => {
-        //   innerTabs.forEach((innerTab) => {
-        //     chrome.tabs.update(innerTab.id, {highlighted: false})
-        //   })
-        // })
-        // clickableTitle.addEventListener("click", () => {
-        //   chrome.tabs.query({index:tab.index}, (innerTabs) => {
-        //     innerTabs.forEach((innerTab) => {
-        //
-        //     })
-        //   })
-        // })
       })
 
 

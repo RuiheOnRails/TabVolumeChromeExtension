@@ -8,8 +8,7 @@ let tabArray = chrome.tabs.query({}, (tabs) => {
     if (tab.audible === true) {
       let title = tab.title
       let img = document.createElement("img");
-      img.src = "img/sound.png";
-      img.alt = "sound";
+      img.src = tab.mutedInfo.muted ? "img/nosound.png" : "img/sound.png";
       img.classList.add("soundState");
       img.addEventListener('click', () => {
         chrome.tabs.query({ index: tab.index }, (innerTabs) => {

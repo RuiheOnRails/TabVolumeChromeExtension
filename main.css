@@ -16,8 +16,8 @@ img {
     bottom: 0;
 }
 #mainContainer{
-    min-height: 220px;
-    max-height: 220px;
+    min-height: 250px;
+    max-height: 250px;
     overflow: auto;
 }
 #volRange{
